@@ -8,6 +8,6 @@
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="OliveNoteMaui.Pages.TabPage">
-    <local:OliveListPage Title="Notes"/>
+    <!-- <local:NotesListPage Title="Notes"/> -->
     <local:CreateNotePage Title="Add"/>
 </TabbedPage>

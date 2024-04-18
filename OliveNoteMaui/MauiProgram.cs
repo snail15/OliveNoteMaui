@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using OliveNoteMaui.Models;
 using OliveNoteMaui.Pages;
 using OliveNoteMaui.Repositories;
 using OliveNoteMaui.ViewModels;
@@ -32,21 +33,22 @@ public static class MauiProgram
     
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
     {
-        builder.Services.AddSingleton<IOliveNoteRepository, OliveNoteRepository>();
+        builder.Services.AddSingleton(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+        //builder.Services.AddSingleton<typeof(IBaseRepository<Note>), typeof(BaseRepository<Note>)>();
         return builder;
     }
     
     public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder builder)
     {
         builder.Services.AddTransient<CreateNoteViewModel>();
-        builder.Services.AddTransient<OliveListViewModel>();
+        builder.Services.AddTransient<NotesListViewModel>();
         return builder;
     }
     
     public static MauiAppBuilder RegisterViews(this MauiAppBuilder builder)
     {
         builder.Services.AddTransient<CreateNotePage>();
-        builder.Services.AddTransient<OliveListPage>();
+        builder.Services.AddTransient<NotesListPage>();
         return builder;
     }
 }

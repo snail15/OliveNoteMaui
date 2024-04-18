@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OliveNoteMaui.ViewModels;
 
 namespace OliveNoteMaui.Pages;
 
-public partial class OliveListPage : ContentPage
+public partial class NotesListPage : ContentPage
 {
-    public OliveListPage()
+    public NotesListPage(NotesListViewModel viewModel)
     {
         InitializeComponent();
+        BindingContext = viewModel;
     }
 }
 
